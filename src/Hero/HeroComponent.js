@@ -1,4 +1,5 @@
 import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import "./glitch.css";
 
 function HeroComponent() {
   return (
