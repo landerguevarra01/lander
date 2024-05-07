@@ -54,11 +54,11 @@ function Me() {
                   width: "8px",
                 },
                 "&::-webkit-scrollbar-thumb": {
-                  bg: "gray.400",
+                  bg: "red.400",
                   borderRadius: "8px",
                 },
                 "&::-webkit-scrollbar-thumb:hover": {
-                  bg: "gray.500",
+                  bg: "red.500",
                 },
                 "&::-webkit-scrollbar-track": {
                   bg: "gray.100",
@@ -132,7 +132,7 @@ function Me() {
               </Text>
             </Box>
           </VStack>
-          <Image src={MeImg} borderRadius="60px" mt="50px" maxHeight="600px" />
+          <Image src={MeImg} borderRadius="25px" mt="50px" maxHeight="600px" />
         </Grid>
       </Box>
     </>
