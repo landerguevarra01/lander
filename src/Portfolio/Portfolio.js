@@ -5,7 +5,7 @@ import "@fontsource/bebas-neue";
 function Portfolio() {
   return (
     <>
-      <Box bgColor="#0e0e0e" w="99vw" pl="80px" pr="80px">
+      <Box bgColor="#0e0e0e" w="95vw" pl="80px" pr="80px">
         <Grid gridTemplateColumns="1fr 1fr" justifyContent="start">
           <Box fontFamily="Bebas Neue" color="#ffffff" mt="150px">
             <Grid gridTemplateRows="1fr 1fr">
