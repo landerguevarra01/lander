@@ -84,12 +84,12 @@ function Me() {
               }}
             >
               <Heading fontSize="72px">about me...</Heading>
-              <Text fontSize="20px" fontWeight="bold">
+              <Text fontSize="20px" fontWeight="bold" >
                 <span style={{ color: "#9b0000" }}> summary </span>/
                 <span style={{ color: "#9b0000" }}> skills </span>/
                 <span style={{ color: "#9b0000" }}> background </span>
               </Text>
-              <Box mt="50px">
+              <Box mt="50px" fontFamily="Bebas Neue" fontSize="20px">
                 <Text>
                   I am a graduating student pursuing a Bachelor of Science in
                   Computer Science at Laguna University. My academic focus
@@ -118,7 +118,7 @@ function Me() {
                 >
                   {/* Use Icon component and adjust fontSize */}
                   <Icon as={skill.icon} fontSize="14vh" />
-                  <Text>{skill.text}</Text>
+                  <Text fontFamily="Bebas Neue" fontSize="20px">{skill.text}</Text>
                 </HStack>
               ))}
               <Heading fontSize="46px" mt="14vh">
@@ -130,7 +130,7 @@ function Me() {
                   education
                 </Text>
               </HStack>
-              <Text mt="20px">
+              <Text mt="20px" fontFamily="Bebas Neue" fontSize="20px">
                 Since 2020, I've studied computer science at Laguna University
                 while serving as a photographer and layout artist for Digital
                 Digest CCS Publications. In this role, I've honed my creative
@@ -144,7 +144,7 @@ function Me() {
                   experience
                 </Text>
               </HStack>
-              <Text mt="20px">
+              <Text mt="20px" fontFamily="Bebas Neue" fontSize="20px">
                 Completed a 300-hour internship at Blink Creative Studio.
               </Text>
             </Box>

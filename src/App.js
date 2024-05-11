@@ -13,7 +13,6 @@ function App() {
         <Box mt="100px" zIndex="2" bgColor="#0e0e0e">
           <Me />
           <Portfolio />
-          <Project/>
         </Box>
       </VStack>
     </>
