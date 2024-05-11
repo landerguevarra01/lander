@@ -16,7 +16,6 @@ function Portfolio() {
     <Box
       key={index}
       w="100%"
-      bgColor="red"
       h="50vh"
       position="relative"
       p="5px"
@@ -31,6 +30,7 @@ function Portfolio() {
         objectFit="cover" // Make sure the image covers the entire box
         top="0"
         left="0"
+        borderRadius="15px"
       />
     </Box>
   ));
