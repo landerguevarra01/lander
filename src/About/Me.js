@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Grid,
@@ -15,6 +15,14 @@ import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
 import { FaBookReader, FaGraduationCap } from "react-icons/fa";
 
 function Me() {
+  // State to store hover status
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Function to toggle hover status
+  const toggleHover = () => {
+    setIsHovered(!isHovered);
+  };
+
   // Array of skills objects containing icon and text
   const skills = [
     {
@@ -39,8 +47,9 @@ function Me() {
         borderRadius="60px 60px 0px 0px"
         pl="80px"
         pr="80px"
-        pb="50px"
-        boxShadow="0px -94px 25px rgba(14, 14, 14, 0.4)"
+        pb="100px"
+        pt="25px"
+        boxShadow="0px -94px 50px rgba(14, 14, 14, 0.4)"
       >
         <Grid gridTemplateColumns="1fr 1fr" gap="40px" display="flex">
           <VStack display="flex-start" mt="50px">
@@ -132,7 +141,26 @@ function Me() {
               </Text>
             </Box>
           </VStack>
-          <Image src={MeImg} borderRadius="25px" mt="50px" maxHeight="600px" />
+          <Image
+            src={MeImg}
+            borderRadius="25px"
+            mt="50px"
+            maxHeight="600px"
+            onMouseEnter={toggleHover}
+            onMouseLeave={toggleHover}
+            boxShadow={
+              isHovered
+                ? "-15px 15px 50px rgba(0, 0, 0, .3)"
+                : "15px -15px 10px rgba(155, 0, 0, 0.2), -15px 15px 10px rgba(103, 0, 0, 0.2)"
+            }
+            style={{
+              transformOrigin: "left top",
+              transform: isHovered
+                ? "perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
+                : "none",
+              transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
+            }}
+          />
         </Grid>
       </Box>
     </>

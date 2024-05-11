@@ -2,6 +2,7 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import classnames from "classnames";
 import { useState, useEffect } from "react";
 import "animate.css";
+import "@fontsource/bebas-neue";
 
 function HeroComponent() {
   const [isAnimated, setIsAnimated] = useState(false);
@@ -33,7 +34,7 @@ function HeroComponent() {
             animate__lightSpeedInRight: isAnimated,
           })}
         >
-          <Heading fontSize="32vh">LANDER</Heading>
+          <Heading fontFamily="Bebas Neue" fontSize="36vh" >LANDER</Heading>
         </Box>
         <Box
           color="#ffffff"
@@ -42,9 +43,9 @@ function HeroComponent() {
             animate__lightSpeedInLeft: isAnimated,
           })}
         >
-          <Heading fontSize="26.2vh">GUEVARRA</Heading>
+          <Heading fontFamily="Bebas Neue" fontSize="30vh">GUEVARRA</Heading>
         </Box>
-        <Box bgColor="#9b0000" w="140vh" h="2vh" mt="5vh" />
+        <Box bgColor="#9b0000" w="110vh" h="1.5vh" mt="-1vh" />
         {showText && (
           <Box
             className={classnames("animate__animated", {
@@ -54,6 +55,7 @@ function HeroComponent() {
             <Text
               color="#ffffff" // Set color to white during animation
               fontSize="18px"
+              fontFamily="Bebas Neue"
             >
               Building pixel-perfect web solutions prioritizing user experience,
               ensuring smooth navigation and effortless interaction.
