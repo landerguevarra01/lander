@@ -9,7 +9,8 @@ import {
   HStack,
   Icon,
 } from "@chakra-ui/react";
-import MeImg from "../Assets/img7.JPG";
+import MeImg1 from "../Assets/img7.JPG";
+import MeImg2 from "../Assets/dplander.jpeg";
 import { GoCodeReview } from "react-icons/go";
 import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
 import { FaBookReader, FaGraduationCap } from "react-icons/fa";
@@ -17,10 +18,17 @@ import { FaBookReader, FaGraduationCap } from "react-icons/fa";
 function Me() {
   // State to store hover status
   const [isHovered, setIsHovered] = useState(false);
+  // State to track whether image is clicked
+  const [isClicked, setIsClicked] = useState(false);
 
   // Function to toggle hover status
   const toggleHover = () => {
     setIsHovered(!isHovered);
+  };
+
+  // Function to toggle image click
+  const toggleClick = () => {
+    setIsClicked(!isClicked);
   };
 
   // Array of skills objects containing icon and text
@@ -142,12 +150,13 @@ function Me() {
             </Box>
           </VStack>
           <Image
-            src={MeImg}
+            src={isClicked ? MeImg2 : MeImg1} // Change the image based on isClicked state
             borderRadius="25px"
             mt="50px"
             maxHeight="600px"
             onMouseEnter={toggleHover}
             onMouseLeave={toggleHover}
+            onClick={toggleClick} // Toggle the click state when image is clicked
             boxShadow={
               isHovered
                 ? "-15px 15px 50px rgba(0, 0, 0, .3)"
