@@ -14,6 +14,7 @@ import MeImg2 from "../Assets/dplander.jpeg";
 import { GoCodeReview } from "react-icons/go";
 import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
 import { FaBookReader, FaGraduationCap } from "react-icons/fa";
+import { Tilt } from "react-tilt";
 
 function Me() {
   // State to store hover status
@@ -151,27 +152,34 @@ function Me() {
               </Text>
             </Box>
           </VStack>
-          <Image
-            src={isClicked ? MeImg2 : MeImg1} // Change the image based on isClicked state
-            borderRadius="25px"
-            mt="50px"
-            maxHeight="600px"
-            onMouseEnter={toggleHover}
-            onMouseLeave={toggleHover}
-            onClick={toggleClick} // Toggle the click state when image is clicked
-            boxShadow={
-              isHovered
-                ? "-15px 15px 50px rgba(0, 0, 0, .3)"
-                : "15px -15px 10px rgba(155, 0, 0, 0.2), -15px 15px 10px rgba(103, 0, 0, 0.2)"
-            }
-            style={{
-              transformOrigin: "left top",
-              transform: isHovered
-                ? "perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
-                : "none",
-              transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
-            }}
-          />
+          <Box w="50%" h="10vh" position="relative" mt="20px">
+            <Tilt
+              options={{
+                maxTilt: 1,
+                glare: true,
+                maxGlare: 0.4,
+                reverse: isHovered, // Reversing tilt if hovered
+              }}
+            >
+              <Image
+                src={isClicked ? MeImg2 : MeImg1}
+                borderRadius="25px"
+                h="100%" // Adjusted to 100%
+                w="100%" // Adjusted to 100%
+                objectFit="cover"
+                top="0"
+                left="0"
+                onMouseEnter={toggleHover}
+                onMouseLeave={toggleHover}
+                onClick={toggleClick}
+                boxShadow={
+                  isHovered
+                    ? "-15px 15px 50px rgba(0, 0, 0, .3)"
+                    : "15px -15px 10px rgba(155, 0, 0, 0.2), -15px 15px 10px rgba(103, 0, 0, 0.2)"
+                }
+              />
+            </Tilt>
+          </Box>
         </Grid>
       </Box>
     </>
