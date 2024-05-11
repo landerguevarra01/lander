@@ -50,7 +50,7 @@ function HeroComponent() {
             style={{
               transformOrigin: "left top",
               transform: isHovered
-                ? "perspective(3000px) rotateX(10deg) rotateY(10deg) rotateZ(-1deg)"
+                ? "perspective(2000px) rotateX(10deg) rotateY(10deg) rotateZ(-1deg)"
                 : "none",
               transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
             }}
@@ -71,7 +71,7 @@ function HeroComponent() {
             style={{
               transformOrigin: "left top",
               transform: isHovered
-                ? "perspective(3000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
+                ? "perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
                 : "none",
               transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
             }}

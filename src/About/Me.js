@@ -84,7 +84,7 @@ function Me() {
               }}
             >
               <Heading fontSize="72px">about me...</Heading>
-              <Text fontSize="20px" fontWeight="bold" >
+              <Text fontSize="20px" fontWeight="bold">
                 <span style={{ color: "#9b0000" }}> summary </span>/
                 <span style={{ color: "#9b0000" }}> skills </span>/
                 <span style={{ color: "#9b0000" }}> background </span>
@@ -118,7 +118,9 @@ function Me() {
                 >
                   {/* Use Icon component and adjust fontSize */}
                   <Icon as={skill.icon} fontSize="14vh" />
-                  <Text fontFamily="Bebas Neue" fontSize="20px">{skill.text}</Text>
+                  <Text fontFamily="Bebas Neue" fontSize="20px">
+                    {skill.text}
+                  </Text>
                 </HStack>
               ))}
               <Heading fontSize="46px" mt="14vh">
@@ -145,7 +147,7 @@ function Me() {
                 </Text>
               </HStack>
               <Text mt="20px" fontFamily="Bebas Neue" fontSize="20px">
-                Completed a 300-hour internship at Blink Creative Studio.
+                Completed over 300 hours of internship at Blink Creative Studio.
               </Text>
             </Box>
           </VStack>

@@ -1,9 +1,10 @@
 import { Box, Grid, HStack, Heading, Text, Image } from "@chakra-ui/react";
 import React from "react";
 import "@fontsource/bebas-neue";
-import img1 from "../Assets/triplec.png";
+import "@fontsource/gantari";
+import img3 from "../Assets/triplec.png";
 import img2 from "../Assets/esignage.jpeg";
-import img3 from "../Assets/giyop.png";
+import img1 from "../Assets/giyop.png";
 
 function Portfolio() {
   // Array of images
@@ -12,8 +13,16 @@ function Portfolio() {
 
   // Map through the images array to create boxes
   const boxes = images.map((image, index) => (
-    <Box key={index} w="90%" bgColor="red" h="50vh" position="relative" p="5px">
-      {/* Each Box */}
+    <Box
+      key={index}
+      w="100%"
+      bgColor="red"
+      h="50vh"
+      position="relative"
+      p="5px"
+      textAlign="center"
+    >
+      {/* Image */}
       <Image
         src={image}
         alt={`Project ${index + 1}`} // Provide a meaningful alt text
@@ -25,6 +34,36 @@ function Portfolio() {
       />
     </Box>
   ));
+
+  // Create an array of headings
+  const headings = [
+    "PERSONAL PORTFOLIO",
+    "AUTOMATIC VOICE NOTIFICATION ELECTRONIC SIGNAGE",
+    "TRIPLE C ARDUINO PARKING MANAGEMENT SYSTEM",
+  ]; // Adjust according to your requirements
+
+  // Map through the headings array to create headings
+  const headingElements = headings.map((heading, index) => (
+    <Heading
+      key={index}
+      as="h3"
+      fontSize="24px"
+      color="white"
+      mt="10px"
+      fontFamily="gantari"
+    >
+      {heading}
+    </Heading>
+  ));
+
+  // Combine boxes and headings in a grid
+  const gridItems = boxes.map((box, index) => (
+    <Box key={index}>
+      {box}
+      {headingElements[index]} {/* Access the corresponding heading */}
+    </Box>
+  ));
+
   return (
     <>
       <Box bgColor="#0e0e0e" w="98.8vw" pl="80px" pr="80px">
@@ -66,9 +105,12 @@ function Portfolio() {
         gridTemplateColumns="repeat(2, 1fr)" // Two columns
         justifyItems="center"
         gap={5}
+        rowGap={10}
         mt="100px"
+        pl="100px"
+        pr="100px"
       >
-        {boxes}
+        {gridItems}
       </Grid>
     </>
   );
