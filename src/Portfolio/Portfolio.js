@@ -30,7 +30,7 @@ function Portfolio() {
   };
 
   // Array of images
-  const images = [img1, img2, img3];
+  const images = [img3, img2, img1];
   const numProjects = images.length; // Get the number of projects
 
   // Map through the images array to create boxes for projects
