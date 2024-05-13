@@ -177,11 +177,11 @@ function Me() {
               <Image
                 src={images[currentImageIndex]}
                 borderRadius="25px"
-                h="100%" // Adjusted to 100%
-                w="100%" // Adjusted to 100%
+                h="75vh" // Adjusted to 100%
+                w="100vh" // Adjusted to 100%
                 objectFit="cover"
-                top="0"
-                left="0"
+                top="50%"
+                bottom="50%"
                 onMouseEnter={toggleHover}
                 onMouseLeave={toggleHover}
                 onClick={toggleClick}

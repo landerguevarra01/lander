@@ -3,6 +3,7 @@ import HeroComponent from "./Hero/HeroComponent.js";
 import Me from "./About/Me.js";
 import Portfolio from "./Portfolio/Portfolio.js";
 import Project from "./Portfolio/Project.js";
+import Contact from "./Contact/Contact.js";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
         <Box mt="100px" zIndex="2" bgColor="#0e0e0e">
           <Me />
           <Portfolio />
+          {/* <Contact/> */}
         </Box>
       </VStack>
     </>
