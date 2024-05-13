@@ -76,12 +76,22 @@ function Portfolio() {
       {projectHoverIndex !== index && (
         <Box
           position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
+          bottom="5px"
+          right="5px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bgColor="#4B5059"
+          color="white"
+          fontSize="24px"
+          h="60px"
+          w="60px"
+          borderRadius="full"
+          // transform="translate(-50%, -50%)"
+          transition="opacity 0.4s ease-in-out" // Add transition for icon opacity
           zIndex={2} // Set z-index of the icon
         >
-          <PiEyeClosed fontSize="50px" />
+          <PiEyeClosed fontSize="40px" />
         </Box>
       )}
       {/* Open Eye Icon */}
@@ -100,19 +110,19 @@ function Portfolio() {
           bgColor="#4B5059"
           color="white"
           fontSize="24px"
-          h="70px"
-          w="70px"
+          h="60px"
+          w="60px"
           borderRadius="full"
           zIndex={2} // Set z-index of the icon
           opacity={projectHoverIndex === index ? 1 : 0} // Show the icon only when hovered
-          transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
+          // transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
         >
-          <PiEye fontSize="50px" />
+          <PiEye fontSize="40px" />
         </Box>
       </a>
     </Box>
   ));
-  
+
   // Array of recognition images
   const recognitionImages = [img4, img5];
   const numRecognitions = recognitionImages.length; // Get the number of projects
@@ -151,13 +161,23 @@ function Portfolio() {
       {/* Icon */}
       {recognitionHoverIndex !== index && (
         <Box
-          position="absolute"
-          top="50%"
-          left="50%"
-          transform="translate(-50%, -50%)"
-          zIndex={2} // Set z-index of the icon
+        position="absolute"
+        bottom="5px"
+        right="5px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        bgColor="#4B5059"
+        color="white"
+        fontSize="24px"
+        h="60px"
+        w="60px"
+        borderRadius="full"
+        // transform="translate(-50%, -50%)"
+        transition="opacity 0.4s ease-in-out" // Add transition for icon opacity
+        zIndex={2} // Set z-index of the icon
         >
-          <PiEyeClosed fontSize="50px" />
+          <PiEyeClosed fontSize="40px" />
         </Box>
       )}
       {/* Open Eye Icon */}
@@ -171,18 +191,17 @@ function Portfolio() {
         bgColor="#4B5059"
         color="white"
         fontSize="24px"
-        h="70px"
-        w="70px"
+        h="60px"
+        w="60px"
         borderRadius="full"
         zIndex={2} // Set z-index of the icon
         opacity={recognitionHoverIndex === index ? 1 : 0} // Show the icon only when hovered
         transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
       >
-        <PiEye fontSize="50px" />
+        <PiEye fontSize="40px" />
       </Box>
     </Box>
   ));
-  
 
   // Create an array of headings for projects
   const projectHeadings = [
@@ -275,7 +294,12 @@ function Portfolio() {
           <Box fontFamily="Bebas Neue" color="#ffffff" mt="50px">
             <Grid gridTemplateRows="1fr 1fr">
               <Box />
-              <Text mt="40px" fontSize="32px" fontWeight="bold" align="baseline">
+              <Text
+                mt="40px"
+                fontSize="32px"
+                fontWeight="bold"
+                align="baseline"
+              >
                 Transforming visions into tangible success, my designs blend
                 form and function seamlessly, ensuring your projects achieve
                 their intended impact.

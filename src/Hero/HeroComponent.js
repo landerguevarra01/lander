@@ -39,10 +39,13 @@ function HeroComponent() {
       <VStack>
         <Box
           color="#ffffff"
-          mt="13vh"
+          mt="13vh" 
           className={classnames("animate__animated", {
             animate__lightSpeedInRight: isAnimated,
           })}
+          style={{
+            animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
+          }}
         >
           <Heading 
             fontFamily="Bebas Neue" 
@@ -52,7 +55,7 @@ function HeroComponent() {
               transform: isHovered
                 ? "perspective(2000px) rotateX(10deg) rotateY(10deg) rotateZ(-1deg)"
                 : "none",
-              transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
+              transition: "transform 2s ease-out, box-shadow 2s ease-out",
             }}
           >
             LANDER
@@ -64,6 +67,9 @@ function HeroComponent() {
           className={classnames("animate__animated", {
             animate__lightSpeedInLeft: isAnimated,
           })}
+          style={{
+            animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
+          }}
         >
           <Heading 
             fontFamily="Bebas Neue" 
@@ -73,7 +79,7 @@ function HeroComponent() {
               transform: isHovered
                 ? "perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
                 : "none",
-              transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
+              transition: "transform 2s ease-out, box-shadow 2s ease-out",
             }}
           >
             GUEVARRA

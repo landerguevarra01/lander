@@ -9,8 +9,11 @@ import {
   HStack,
   Icon,
 } from "@chakra-ui/react";
-import MeImg1 from "../Assets/img7.JPG";
-import MeImg2 from "../Assets/dplander.jpeg";
+import MeImg1 from "../Assets/MeImg/img7.JPG";
+import MeImg2 from "../Assets/MeImg/dplander.jpeg";
+import MeImg3 from "../Assets/MeImg/IMG_2988 copy.jpg";
+import MeImg4 from "../Assets/MeImg/IMG_4013.jpg";
+import MeImg5 from "../Assets/MeImg/IMG_2990.JPG";
 import { GoCodeReview } from "react-icons/go";
 import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
 import { FaBookReader, FaGraduationCap } from "react-icons/fa";
@@ -20,7 +23,10 @@ function Me() {
   // State to store hover status
   const [isHovered, setIsHovered] = useState(false);
   // State to track whether image is clicked
-  const [isClicked, setIsClicked] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Array of images
+  const images = [MeImg1, MeImg2, MeImg3, MeImg4, MeImg5];
 
   // Function to toggle hover status
   const toggleHover = () => {
@@ -29,7 +35,7 @@ function Me() {
 
   // Function to toggle image click
   const toggleClick = () => {
-    setIsClicked(!isClicked);
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   // Array of skills objects containing icon and text
@@ -152,7 +158,14 @@ function Me() {
               </Text>
             </Box>
           </VStack>
-          <Box w="50%" h="10vh" position="relative" mt="20px">
+          <Box
+            w="50%"
+            h="10vh"
+            position="relative"
+            mt="20px"
+            top="50%"
+            bottom="50%"
+          >
             <Tilt
               options={{
                 maxTilt: 1,
@@ -162,7 +175,7 @@ function Me() {
               }}
             >
               <Image
-                src={isClicked ? MeImg2 : MeImg1}
+                src={images[currentImageIndex]}
                 borderRadius="25px"
                 h="100%" // Adjusted to 100%
                 w="100%" // Adjusted to 100%
