@@ -8,6 +8,7 @@ import img3 from "../Assets/giyop.png";
 import img4 from "../Assets/robotics.jpg";
 import img5 from "../Assets/microbio.jpg";
 import { IoEyeSharp } from "react-icons/io5";
+import { PiEye, PiEyeClosed } from "react-icons/pi";
 
 function Portfolio() {
   const [projectHoverIndex, setProjectHoverIndex] = useState(null);
@@ -32,6 +33,13 @@ function Portfolio() {
   // Array of images
   const images = [img3, img2, img1];
   const numProjects = images.length; // Get the number of projects
+
+  const projectLinks = [
+    "https://giyoalvarez.vercel.app/",
+    "https://play.google.com/store/apps/details?id=com.esignage.myapplication&pcampaignid=web_share",
+    "http://triplec-parking.000webhostapp.com/?fbclid=IwZXh0bgNhZW0CMTAAAR3wF5Y0qUaljJAu1QDp_gFX0O_MsrlEGTcP4XhJOm0GaFe11gF2kqKWvSU_aem_AQmS6Wch6dRDTeyMcrWdicP-YnA7pgMCcOQHgKae3ivB8jLRj2Pan4PWnLAA52RV9oL7Iq6wCQfPl9mABXvbsgma",
+    // Add more links as needed
+  ];
 
   // Map through the images array to create boxes for projects
   const projectBoxes = images.map((image, index) => (
@@ -64,9 +72,21 @@ function Portfolio() {
           zIndex: 1, // Set z-index of the image
         }}
       />
-      {/* Icon */}
+      {/* Closed Eye Icon */}
+      {projectHoverIndex !== index && (
+        <Box
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          zIndex={2} // Set z-index of the icon
+        >
+          <PiEyeClosed fontSize="50px" />
+        </Box>
+      )}
+      {/* Open Eye Icon */}
       <a
-        href="https://l.facebook.com/l.php?u=http%3A%2F%2Ftriplec-parking.000webhostapp.com%2F%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR3wF5Y0qUaljJAu1QDp_gFX0O_MsrlEGTcP4XhJOm0GaFe11gF2kqKWvSU_aem_AQmS6Wch6dRDTeyMcrWdicP-YnA7pgMCcOQHgKae3ivB8jLRj2Pan4PWnLAA52RV9oL7Iq6wCQfPl9mABXvbsgma&h=AT1ryvNSm3s1GgnjN8Hz7Be3L_GBOTu6No85mAJBxEEkgBWz8Sk1GF8SNnXRIEHeiaxnfJ1u_3rb1S5_Jk5fgKNSKw_XBWwfG4kBk3w8xwxO1bg3BuKWbQ6jm6FEsCbZM3GQaOUGA0hR7aI"
+        href={projectLinks[index]} // Dynamic link based on index
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -87,12 +107,12 @@ function Portfolio() {
           opacity={projectHoverIndex === index ? 1 : 0} // Show the icon only when hovered
           transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
         >
-          <IoEyeSharp fontSize="50px" />
+          <PiEye fontSize="50px" />
         </Box>
       </a>
     </Box>
   ));
-
+  
   // Array of recognition images
   const recognitionImages = [img4, img5];
   const numRecognitions = recognitionImages.length; // Get the number of projects
@@ -129,6 +149,18 @@ function Portfolio() {
         }}
       />
       {/* Icon */}
+      {recognitionHoverIndex !== index && (
+        <Box
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          zIndex={2} // Set z-index of the icon
+        >
+          <PiEyeClosed fontSize="50px" />
+        </Box>
+      )}
+      {/* Open Eye Icon */}
       <Box
         position="absolute"
         bottom="5px"
@@ -146,10 +178,11 @@ function Portfolio() {
         opacity={recognitionHoverIndex === index ? 1 : 0} // Show the icon only when hovered
         transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
       >
-        <IoEyeSharp fontSize="50px" />
+        <PiEye fontSize="50px" />
       </Box>
     </Box>
   ));
+  
 
   // Create an array of headings for projects
   const projectHeadings = [
@@ -242,7 +275,7 @@ function Portfolio() {
           <Box fontFamily="Bebas Neue" color="#ffffff" mt="50px">
             <Grid gridTemplateRows="1fr 1fr">
               <Box />
-              <Text mt="40px" fontSize="32px" fontWeight="bold">
+              <Text mt="40px" fontSize="32px" fontWeight="bold" align="baseline">
                 Transforming visions into tangible success, my designs blend
                 form and function seamlessly, ensuring your projects achieve
                 their intended impact.
