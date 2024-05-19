@@ -76,8 +76,8 @@ function Portfolio() {
       {projectHoverIndex !== index && (
         <Box
           position="absolute"
-          bottom="5px"
-          right="5px"
+          bottom="25px"
+          right="25px"
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -102,8 +102,8 @@ function Portfolio() {
       >
         <Box
           position="absolute"
-          bottom="5px"
-          right="5px"
+          bottom="25px"
+          right="25px"
           display="flex"
           justifyContent="center"
           alignItems="center"
@@ -162,8 +162,8 @@ function Portfolio() {
       {recognitionHoverIndex !== index && (
         <Box
         position="absolute"
-        bottom="5px"
-        right="5px"
+        bottom="25px"
+        right="25px"
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -174,7 +174,7 @@ function Portfolio() {
         w="60px"
         borderRadius="full"
         // transform="translate(-50%, -50%)"
-        transition="opacity 0.4s ease-in-out" // Add transition for icon opacity
+        transition="opacity 0.9s ease-in-out" // Add transition for icon opacity
         zIndex={2} // Set z-index of the icon
         >
           <PiEyeClosed fontSize="40px" />
@@ -183,8 +183,8 @@ function Portfolio() {
       {/* Open Eye Icon */}
       <Box
         position="absolute"
-        bottom="5px"
-        right="5px"
+        bottom="25px"
+        right="25px"
         display="flex"
         justifyContent="center"
         alignItems="center"
@@ -196,7 +196,7 @@ function Portfolio() {
         borderRadius="full"
         zIndex={2} // Set z-index of the icon
         opacity={recognitionHoverIndex === index ? 1 : 0} // Show the icon only when hovered
-        transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
+        // transition="opacity 0.2s ease-in-out" // Add transition for icon opacity
       >
         <PiEye fontSize="40px" />
       </Box>

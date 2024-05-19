@@ -10,10 +10,10 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import MeImg1 from "../Assets/MeImg/img7.JPG";
-import MeImg2 from "../Assets/MeImg/dplander.jpeg";
-import MeImg3 from "../Assets/MeImg/IMG_2988 copy.jpg";
+import MeImg2 from "../Assets/MeImg/IMG_2988 copy.jpg";
+import MeImg3 from "../Assets/MeImg/IMG_2990.JPG";
 import MeImg4 from "../Assets/MeImg/IMG_4013.jpg";
-import MeImg5 from "../Assets/MeImg/IMG_2990.JPG";
+import MeImg5 from "../Assets/MeImg/dplander.jpeg";
 import { GoCodeReview } from "react-icons/go";
 import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
 import { FaBookReader, FaGraduationCap } from "react-icons/fa";
@@ -32,6 +32,14 @@ function Me() {
   const toggleHover = () => {
     setIsHovered(!isHovered);
   };
+
+  // Function to update image index periodically
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   // Function to toggle image click
   const toggleClick = () => {
@@ -90,13 +98,20 @@ function Me() {
                 },
               }}
             >
-              <Heading fontSize="72px">about me...</Heading>
+              <Heading fontSize="72px" color="#000000">
+                about me...
+              </Heading>
               <Text fontSize="20px" fontWeight="bold">
                 <span style={{ color: "#9b0000" }}> summary </span>/
                 <span style={{ color: "#9b0000" }}> skills </span>/
                 <span style={{ color: "#9b0000" }}> background </span>
               </Text>
-              <Box mt="50px" fontFamily="Bebas Neue" fontSize="20px">
+              <Box
+                mt="50px"
+                fontFamily="Bebas Neue"
+                fontSize="20px"
+                color="#000000"
+              >
                 <Text>
                   I am a graduating student pursuing a Bachelor of Science in
                   Computer Science at Laguna University. My academic focus
@@ -113,7 +128,7 @@ function Me() {
                 </Text>
               </Box>
               <Box bgColor="#9b0000" w="110vh" h="1vh" mt="5vh" />
-              <Heading fontSize="46px" mt="5vh">
+              <Heading fontSize="46px" mt="5vh" color="#000000">
                 my skills
               </Heading>
               {skills.map((skill, index) => (
@@ -124,13 +139,13 @@ function Me() {
                   gap="60px"
                 >
                   {/* Use Icon component and adjust fontSize */}
-                  <Icon as={skill.icon} fontSize="14vh" />
-                  <Text fontFamily="Bebas Neue" fontSize="20px">
+                  <Icon as={skill.icon} fontSize="14vh" color="#9b0000"/>
+                  <Text fontFamily="Bebas Neue" fontSize="20px" color="#000000">
                     {skill.text}
                   </Text>
                 </HStack>
               ))}
-              <Heading fontSize="46px" mt="14vh">
+              <Heading fontSize="46px" mt="14vh" color="#000000">
                 my background
               </Heading>
               <HStack color="#9b0000" mt="20px">
@@ -139,7 +154,12 @@ function Me() {
                   education
                 </Text>
               </HStack>
-              <Text mt="20px" fontFamily="Bebas Neue" fontSize="20px">
+              <Text
+                mt="20px"
+                fontFamily="Bebas Neue"
+                fontSize="20px"
+                color="#000000"
+              >
                 Since 2020, I've studied computer science at Laguna University
                 while serving as a photographer and layout artist for Digital
                 Digest CCS Publications. In this role, I've honed my creative
@@ -153,22 +173,20 @@ function Me() {
                   experience
                 </Text>
               </HStack>
-              <Text mt="20px" fontFamily="Bebas Neue" fontSize="20px">
+              <Text
+                mt="20px"
+                fontFamily="Bebas Neue"
+                fontSize="20px"
+                color="#000000"
+              >
                 Completed over 300 hours of internship at Blink Creative Studio.
               </Text>
             </Box>
           </VStack>
-          <Box
-            w="50%"
-            h="10vh"
-            position="relative"
-            mt="20px"
-            top="50%"
-            bottom="50%"
-          >
+          <Box display="flex" justifyContent="center" alignItems="center">
             <Tilt
               options={{
-                maxTilt: 1,
+                maxTilt: 0.5,
                 glare: true,
                 maxGlare: 0.4,
                 reverse: isHovered, // Reversing tilt if hovered
