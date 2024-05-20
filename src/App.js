@@ -5,6 +5,7 @@ import HeroComponent from "./Hero/HeroComponent.js";
 import Me from "./About/Me.js";
 import Portfolio from "./Portfolio/Portfolio.js";
 import Contact from "./Contact/Contact.js";
+import Language from "./Bouncing/Language.js";
 
 function FadeInSection({ children }) {
   const { ref, inView } = useInView({
@@ -47,6 +48,9 @@ function App() {
         </FadeInSection>
         <FadeInSection>
           <Portfolio />
+        </FadeInSection>
+        <FadeInSection>
+          <Language />
         </FadeInSection>
         <Box>
           <FadeInSection>
