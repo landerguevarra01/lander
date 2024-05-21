@@ -9,7 +9,7 @@ import { Box, Heading, VStack, useToast } from "@chakra-ui/react";
 function Contact() {
   const messages = Array(8).fill("GET IN TOUCH");
   const [redirect, setRedirect] = useState(false);
-  const email = "guevarralander0@gmail.com";
+  const email = "guevarralander0@gmai.com";
   const toast = useToast();
 
   const headingStyle = {
@@ -27,16 +27,32 @@ function Contact() {
     },
   };
 
-  const handleClick = () => {
-    navigator.clipboard.writeText(email);
-    toast({
-      title: "Email Copied",
-      description: "You will be redirected to Gmail.",
-      status: "success",
-      duration: 3000,
-      isClosable: true,
-    });
-    setRedirect(true);
+  const handleClick = async () => {
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+      // Fallback mechanism if Clipboard API is not supported
+      alert(
+        "Copying to clipboard is not supported in this browser. Please copy the email manually."
+      );
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(email);
+      toast({
+        title: "Email Copied",
+        description: "You will be redirected to Gmail.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      setRedirect(true);
+    } catch (error) {
+      console.error("Error copying to clipboard:", error);
+      // Handle error, maybe show a message to the user
+      alert(
+        "An error occurred while copying the email to clipboard. Please try again or copy it manually."
+      );
+    }
   };
 
   useEffect(() => {
@@ -64,7 +80,7 @@ function Contact() {
               display="flex"
               alignItems="center"
               marginRight={{ base: "20px", lg: "50px" }}
-              fontSize={{ base: "8vw", md: "6vw", lg: "4vw" }}
+              fontSize={{ base: "8vw", md: "6vw", lg: "8vw" }}
               fontFamily="Bebas Neue"
             >
               {message}
@@ -85,6 +101,7 @@ function Contact() {
           cursor="pointer"
           sx={{
             "&:hover h2": headingStyle._hover,
+            "&:hover .line": lineStyle._hover,
           }}
         >
           <Heading
