@@ -293,7 +293,11 @@ function Portfolio() {
               gridTemplateColumns="1fr 1fr"
               gap={{ base: "20px", md: "initial" }}
             >
-              <HStack align="baseline">
+              <HStack
+                align="baseline"
+                fontFamily="Bebas Neue"
+                pl={{ base: "20px", md: "initial" }}
+              >
                 <Heading
                   as="h3"
                   fontFamily="Bebas Neue"
@@ -305,7 +309,12 @@ function Portfolio() {
                   Undertakings
                 </Text>
               </HStack>
-              <HStack align="baseline" mt={{ base: "20px", md: "initial" }}>
+              <HStack
+                align="baseline"
+                mt={{ base: "0px", md: "initial" }}
+                pl={{ base: "0px", md: "initial" }}
+                fontFamily="Bebas Neue"
+              >
                 <Heading
                   as="h3"
                   fontFamily="Bebas Neue"
@@ -322,11 +331,14 @@ function Portfolio() {
             color="#ffffff"
             mt={{ base: "50px", md: 0 }}
             textAlign={{ base: "center", md: "initial" }}
+            pl={{ base: "10px", md: "initial" }}
+            pr={{ base: "10px", md: "initial" }}
           >
             <Text
-              fontSize={{ base: "24px", md: "32px" }}
+              fontSize={{ base: "22px", md: "32px" }}
               fontWeight="bold"
               align="baseline"
+              fontFamily="Bebas Neue"
             >
               Transforming visions into tangible success, my designs blend form
               and function seamlessly, ensuring your projects achieve their
@@ -343,7 +355,9 @@ function Portfolio() {
         rowGap={10}
         mt="100px"
         px={{ base: "20px", md: "100px" }}
-      >
+        pl={{ base: "20px", md: "initial" }}
+        pr={{ base: "20px", md: "initial" }}
+        >
         {/* Projects */}
         {projectGridItems}
         {/* Recognition */}

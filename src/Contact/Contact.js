@@ -13,14 +13,14 @@ function Contact() {
   const toast = useToast();
 
   const headingStyle = {
-    transition: "transform 2s ease",
+    transition: "transform 0.5s ease",
     _hover: {
       transform: "scale(0.8)",
     },
   };
 
   const lineStyle = {
-    transition: "width 2s ease",
+    transition: "width 0.5s ease",
     width: "0%",
     _hover: {
       width: "100%",
@@ -31,7 +31,7 @@ function Contact() {
     navigator.clipboard.writeText(email);
     toast({
       title: "Email Copied",
-      description: "You will be redirected to Gmail in 3 seconds.",
+      description: "You will be redirected to Gmail.",
       status: "success",
       duration: 3000,
       isClosable: true,
@@ -55,7 +55,7 @@ function Contact() {
         color="#000000"
         overflow="hidden"
         w="98.7vw"
-        my="150px"
+        my={{ base: "50px", md: "100px", lg: "150px" }}
       >
         <Marquee speed={100}>
           {messages.map((message, index) => (
@@ -63,19 +63,19 @@ function Contact() {
               key={index}
               display="flex"
               alignItems="center"
-              marginRight="50px"
-              fontSize="14vh"
+              marginRight={{ base: "20px", lg: "50px" }}
+              fontSize={{ base: "8vw", md: "6vw", lg: "4vw" }}
               fontFamily="Bebas Neue"
             >
               {message}
-              <Box ml="50px">
-                <GoDotFill fontSize="7vh" />
+              <Box ml={{ base: "20px", md: "30px" }}>
+                <GoDotFill fontSize={{ base: "4vw", md: "3vw", lg: "2vw" }} />
               </Box>
             </Box>
           ))}
         </Marquee>
       </Box>
-      <Box color="#dddbde" mb="100px">
+      <Box color="#dddbde" mb={{ base: "50px", lg: "100px" }}>
         <Box
           as="a"
           onClick={handleClick}
@@ -90,7 +90,7 @@ function Contact() {
         >
           <Heading
             as="h2"
-            fontSize="220px"
+            fontSize={{ base: "12vw", md: "10vw", lg: "15vw" }}
             className="capitalize-every-word"
             sx={headingStyle}
           >
@@ -100,7 +100,7 @@ function Contact() {
             className="line"
             height="2.5px"
             bgColor="#ffffff"
-            mt="10px"
+            mt={{ base: "5px", md: "10px" }}
             sx={lineStyle}
           />
         </Box>
