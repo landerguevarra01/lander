@@ -10,6 +10,7 @@ import {
   Icon,
   useBreakpointValue,
   useMediaQuery,
+  Stack
 } from "@chakra-ui/react";
 import MeImg1 from "../Assets/MeImg/img7.JPG";
 import MeImg2 from "../Assets/MeImg/IMG_2988 copy.jpg";
@@ -18,8 +19,16 @@ import MeImg4 from "../Assets/MeImg/IMG_4013.jpg";
 import MeImg5 from "../Assets/MeImg/dplander.jpeg";
 import { GoCodeReview } from "react-icons/go";
 import { FaLinesLeaning, FaLaptopCode } from "react-icons/fa6";
-import { FaBookReader, FaGraduationCap } from "react-icons/fa";
+import {
+  FaBookReader,
+  FaGraduationCap,
+  FaFacebookSquare,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
 import { Tilt } from "react-tilt";
+import IconsContact from "./IconsContact";
 
 function Me() {
   // State to store hover status
@@ -113,9 +122,7 @@ function Me() {
                 },
               }}
             >
-              <Heading fontSize={headingFontSize}>
-                about me...
-              </Heading>
+              <Heading fontSize={headingFontSize}>about me...</Heading>
               <Text fontSize={textFontSize} fontWeight="bold">
                 <span style={{ color: "#9b0000" }}> summary </span>/
                 <span style={{ color: "#9b0000" }}> skills </span>/
@@ -206,39 +213,47 @@ function Me() {
               </Text>
             </Box>
           </VStack>
-          <Box
-            display="flex"
-            justifyContent="center"
+          <Grid
+            gridTemplateColumns={{ base: "1fr", md: "90% 10%" }}
             alignItems="center"
-            gridRow={{ base: "2", md: "auto" }} // Place the Box in row 2 for mobile view
+            justifyContent="center"
+            gap="10px"
           >
-            <Tilt
-              options={{
-                maxTilt: 0.5,
-                glare: true,
-                maxGlare: 0.4,
-                reverse: isHovered, // Reversing tilt if hovered
-              }}
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              // gridRow={{ base: "2", md: "auto" }} // Place the Box in row 2 for mobile view
             >
-              <Image
-                src={images[currentImageIndex]}
-                borderRadius="25px"
-                h={{ base: "50vh", md: "80vh" }}
-                w={{ base: "70vw", md: "60vh" }}
-                objectFit="cover"
-                top="50%"
-                bottom="50%"
-                onMouseEnter={toggleHover}
-                onMouseLeave={toggleHover}
-                onClick={toggleClick}
-                boxShadow={
-                  isHovered
-                    ? "-15px 15px 50px rgba(0, 0, 0, .3)"
-                    : "15px -15px 10px rgba(155, 0, 0, 0.2), -15px 15px 10px rgba(103, 0, 0, 0.2)"
-                }
-              />
-            </Tilt>
-          </Box>{" "}
+              <Tilt
+                options={{
+                  maxTilt: 0.5,
+                  glare: true,
+                  maxGlare: 0.4,
+                  reverse: isHovered, // Reversing tilt if hovered
+                }}
+              >
+                <Image
+                  src={images[currentImageIndex]}
+                  borderRadius="25px"
+                  h={{ base: "50vh", md: "80vh" }}
+                  w={{ base: "70vw", md: "60vh" }}
+                  objectFit="cover"
+                  top="50%"
+                  bottom="50%"
+                  onMouseEnter={toggleHover}
+                  onMouseLeave={toggleHover}
+                  onClick={toggleClick}
+                  boxShadow={
+                    isHovered
+                      ? "-15px 15px 50px rgba(0, 0, 0, .3)"
+                      : "15px -15px 10px rgba(155, 0, 0, 0.2), -15px 15px 10px rgba(103, 0, 0, 0.2)"
+                  }
+                />
+              </Tilt>
+            </Box>{" "}
+            <IconsContact/>
+          </Grid>
         </Grid>
       </Box>
     </>

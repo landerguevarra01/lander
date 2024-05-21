@@ -36,7 +36,7 @@ function HeroComponent() {
   useEffect(() => {
     const handleScroll = () => {
       // Determine if the user has scrolled down enough to trigger the effect
-      const scrolled = window.scrollY > 200; // Adjust the value as needed
+      const scrolled = window.scrollY > 100; // Adjust the value as needed
       setIsHovered(scrolled);
     };
 
