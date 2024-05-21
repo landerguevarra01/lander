@@ -9,7 +9,7 @@ import { Box, Heading, VStack, useToast } from "@chakra-ui/react";
 function Contact() {
   const messages = Array(8).fill("GET IN TOUCH");
   const [redirect, setRedirect] = useState(false);
-  const email = "guevarralander0@gmai.com";
+  const email = "guevarralander0@gmail.com";
   const toast = useToast();
 
   const headingStyle = {
@@ -85,7 +85,6 @@ function Contact() {
           cursor="pointer"
           sx={{
             "&:hover h2": headingStyle._hover,
-            "&:hover .line": lineStyle._hover,
           }}
         >
           <Heading
