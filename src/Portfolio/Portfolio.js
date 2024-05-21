@@ -355,8 +355,8 @@ function Portfolio() {
         rowGap={10}
         mt="100px"
         px={{ base: "20px", md: "100px" }}
-        pl={{ base: "20px", md: "initial" }}
-        pr={{ base: "20px", md: "initial" }}
+        pl={{ base: "20px", md: "100px" }}
+        pr={{ base: "20px", md: "100px" }}
         >
         {/* Projects */}
         {projectGridItems}
