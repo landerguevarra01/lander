@@ -9,7 +9,7 @@ import { Box, Heading, VStack, useToast } from "@chakra-ui/react";
 function Contact() {
   const messages = Array(8).fill("GET IN TOUCH");
   const [redirect, setRedirect] = useState(false);
-  const email = "guevarralander0@gmai.com";
+  const email = "guevarralander0@gmail.com";
   const toast = useToast();
 
   const headingStyle = {
@@ -31,7 +31,7 @@ function Contact() {
     if (!navigator.clipboard || !navigator.clipboard.writeText) {
       // Fallback mechanism if Clipboard API is not supported
       alert(
-        "Copying to clipboard is not supported in this browser. Please copy the email manually."
+        "Copying to clipboard is not supported in this browser. Please email me at guevarralander0@gmail.com."
       );
       return;
     }
