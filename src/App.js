@@ -49,9 +49,9 @@ function App() {
         <FadeInSection>
           <Portfolio />
         </FadeInSection>
-        <FadeInSection>
+        {/* <FadeInSection>
           <Language />
-        </FadeInSection>
+        </FadeInSection> */}
         <Box>
           <FadeInSection>
             <Contact />

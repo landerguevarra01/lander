@@ -1,4 +1,10 @@
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  Text,
+  VStack,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import classnames from "classnames";
 import { useState, useEffect } from "react";
 import "animate.css";
@@ -8,6 +14,13 @@ function HeroComponent() {
   const [isAnimated, setIsAnimated] = useState(false);
   const [showText, setShowText] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
+  const fontSizeLander = useBreakpointValue({ base: "17vh", md: "36vh" });
+  const fontSizeGuevarra = useBreakpointValue({ base: "14vh", md: "30vh" });
+  const marginTopLander = useBreakpointValue({ base: "5vh", md: "13vh" });
+  const marginTopGuevarra = useBreakpointValue({ base: "-6vh", md: "-15vh" });
+  const widthBar = useBreakpointValue({ base: "90vw", md: "110vh" });
+  const textFontSize = useBreakpointValue({ base: "16px", md: "20px" });
 
   useEffect(() => {
     // Set initial animation state to true when component mounts
@@ -36,10 +49,10 @@ function HeroComponent() {
 
   return (
     <>
-      <VStack>
+      <VStack spacing={{ base: 4, md: 8 }}>
         <Box
           color="#ffffff"
-          mt="13vh" 
+          mt={marginTopLander}
           className={classnames("animate__animated", {
             animate__lightSpeedInRight: isAnimated,
           })}
@@ -47,9 +60,9 @@ function HeroComponent() {
             animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
           }}
         >
-          <Heading 
-            fontFamily="Bebas Neue" 
-            fontSize="36vh"
+          <Heading
+            fontFamily="Bebas Neue"
+            fontSize={fontSizeLander}
             style={{
               transformOrigin: "left top",
               transform: isHovered
@@ -63,7 +76,7 @@ function HeroComponent() {
         </Box>
         <Box
           color="#ffffff"
-          mt="-10vh"
+          mt={marginTopGuevarra}
           className={classnames("animate__animated", {
             animate__lightSpeedInLeft: isAnimated,
           })}
@@ -71,9 +84,9 @@ function HeroComponent() {
             animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
           }}
         >
-          <Heading 
-            fontFamily="Bebas Neue" 
-            fontSize="30vh"
+          <Heading
+            fontFamily="Bebas Neue"
+            fontSize={fontSizeGuevarra}
             style={{
               transformOrigin: "left top",
               transform: isHovered
@@ -85,7 +98,7 @@ function HeroComponent() {
             GUEVARRA
           </Heading>
         </Box>
-        <Box bgColor="#9b0000" w="110vh" h="1.5vh" mt="-1vh" />
+        <Box bgColor="#9b0000" w={widthBar} h="1.5vh" mt="-1vh" />
         {showText && (
           <Box
             className={classnames("animate__animated", {
@@ -94,8 +107,10 @@ function HeroComponent() {
           >
             <Text
               color="#ffffff" // Set color to white during animation
-              fontSize="20px"
+              fontSize={textFontSize}
               fontFamily="Bebas Neue"
+              textAlign="center"
+              px={{ base: 4, md: 0 }}
             >
               Building pixel-perfect web solutions prioritizing user experience,
               ensuring smooth navigation and effortless interaction.

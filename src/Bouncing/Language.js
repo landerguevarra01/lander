@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
+import HTMLimg from "../Assets/LanguagesIcons/htmlic.jpg"
 
 const AnimatedBox = () => {
-  const dotSize = 70; // Adjust the size of the dot here
+  const dotSize = 120; // Adjust the size of the dot here
+  const boxWidth = 900; // Adjusted width of the Box
+  const boxHeight = 400; // Adjusted height of the Box
 
   useEffect(() => {
-    const boxWidth = 900; // Adjusted width of the Box
-    const boxHeight = 400; // Adjusted height of the Box
-
     const keyframes = {
       "@keyframes moveX1": {
         from: { left: "0" },
@@ -36,13 +36,20 @@ const AnimatedBox = () => {
         to: { top: "0px" }, // Back to starting position
       },
       "@keyframes moveX4": {
-        from: { left: `0px` }, // Adjusted starting position to the middle
-        to: { left: `${boxWidth - dotSize}px` }, // Adjusted to the new width
+        from: { left: "0px" },
+        to: { left: `${boxWidth - dotSize}px` },
       },
       "@keyframes moveY4": {
-        from: { top: "0px" }, // Adjusted starting position
-        "50%": { top: `${boxHeight - dotSize}px` }, // Adjusted to the new height
-        to: { top: "0px" }, // Back to starting position
+        from: { top: `${boxHeight - dotSize}px` },
+        to: { top: "0px" },
+      },
+      "@keyframes moveX5": {
+        from: { left: "0px" }, // Start from the left
+        to: { left: `${boxWidth - dotSize}px` }, // End at the right
+      },
+      "@keyframes moveY5": {
+        from: { top: "0px" }, // Start from the top
+        to: { top: `${boxHeight - dotSize}px` }, // End at the bottom
       },
     };
 
@@ -64,13 +71,15 @@ const AnimatedBox = () => {
     return () => {
       document.head.removeChild(styleTag);
     };
-  }, [dotSize]);
+  }, [dotSize, boxWidth, boxHeight]);
 
   const dotStyle1 = {
     width: `${dotSize}px`,
     height: `${dotSize}px`,
     borderRadius: "50%",
-    backgroundColor: "#3673cf",
+    // backgroundColor: "#3673cf",
+    backgroundImage: `url(${HTMLimg})`,
+    backgroundSize: "cover",
     boxShadow:
       "inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04)",
     position: "absolute",
@@ -86,7 +95,7 @@ const AnimatedBox = () => {
       "inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04)",
     position: "absolute",
     animation: `moveX2 3.05s linear 1.5s infinite alternate, moveY2 3.4s linear 1.5s infinite alternate`,
-    left: `${900 - dotSize}px`, // Adjusted the left position to start from the right side
+    left: `${boxWidth - dotSize}px`, // Adjusted the left position to start from the right side
     top: "200px", // Adjust the top position if needed
   };
 
@@ -102,21 +111,20 @@ const AnimatedBox = () => {
     left: `${400 - dotSize}px`, // Adjusted the left position to start from the middle
     top: "100px", // Adjust the top position if needed
   };
+
   const dotStyle4 = {
     width: `${dotSize}px`,
     height: `${dotSize}px`,
     borderRadius: "50%",
-    backgroundColor: "black", // Adjust color if desired
+    backgroundColor: "#0f0", // Adjust color if desired
     boxShadow:
       "inset -5px -5px 5px rgba(0,0,0,.6), 15px 15px 2px rgba(0,0,0,.04)",
     position: "absolute",
     animation: `moveX4 3.05s linear 1.5s infinite alternate, moveY4 3.4s linear 1.5s infinite alternate`,
-    right: `${700 - dotSize}px`, // Adjusted the left position to start from the middle
-    top: "300px", // Adjust the top position if needed
+    top: `${boxHeight - dotSize}px`, // Adjusted the top position to start from the bottom
   };
 
-  const boxWidth = 900; // Adjusted width of the Box
-  const boxHeight = 400; // Adjusted height of the Box
+  
 
   return (
     <Box
@@ -125,16 +133,14 @@ const AnimatedBox = () => {
       width={`${boxWidth}px`}
       height={`${boxHeight}px`}
       position="relative"
-    //   boxShadow="inset 0 0 3px #000"
       borderRadius="5px"
-    //   border="1px solid #111"
       overflow="hidden"
       mt="100px"
     >
       <Box as="b" style={dotStyle1}></Box>
       <Box as="b" style={dotStyle2}></Box>
       <Box as="b" style={dotStyle3}></Box>
-      {/* <Box as="b" style={dotStyle4}></Box> */}
+      <Box as="b" style={dotStyle4}></Box>
     </Box>
   );
 };

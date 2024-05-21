@@ -8,6 +8,8 @@ import {
   VStack,
   HStack,
   Icon,
+  useBreakpointValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import MeImg1 from "../Assets/MeImg/img7.JPG";
 import MeImg2 from "../Assets/MeImg/IMG_2988 copy.jpg";
@@ -63,21 +65,34 @@ function Me() {
     // Add more skills objects here if needed
   ];
 
+  // Responsive font sizes
+  const headingFontSize = useBreakpointValue({ base: "36px", md: "72px" });
+  const subHeadingFontSize = useBreakpointValue({ base: "20px", md: "46px" });
+  const textFontSize = useBreakpointValue({ base: "16px", md: "20px" });
+  const iconFontSize = useBreakpointValue({ base: "8vh", md: "14vh" });
+
   return (
     <>
       <Box
         bgColor="#e4e1db"
-        borderRadius="60px 60px 0px 0px"
-        pl="80px"
-        pr="80px"
-        pb="100px"
-        pt="25px"
+        borderRadius={{ base: "30px 30px 0px 0px", md: "60px 60px 0px 0px" }}
+        pl={{ base: "20px", md: "80px" }}
+        pr={{ base: "20px", md: "80px" }}
+        pb={{ base: "50px", md: "100px" }}
+        pt={{ base: "25px", md: "25px" }} // You can adjust this if needed
         boxShadow="0px -94px 50px rgba(14, 14, 14, 0.4)"
+        maxW={{ base: "90%", md: "98.7vw" }} // Adjust max width for responsiveness
+        mx="auto" // Center align horizontally
       >
-        <Grid gridTemplateColumns="1fr 1fr" gap="40px" display="flex">
-          <VStack display="flex-start" mt="50px">
+        <Grid
+          gap="40px"
+          // display="flex"
+          gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
+          gridTemplateRows={{ base: "1fr 1fr", md: "1fr" }}
+        >
+          <VStack alignItems="flex-start" mt="50px">
             <Box
-              pr="40px"
+              pr={{ base: "20px", md: "40px" }}
               pb="50px"
               overflowY="auto"
               maxHeight="600px"
@@ -98,10 +113,10 @@ function Me() {
                 },
               }}
             >
-              <Heading fontSize="72px" color="#000000">
+              <Heading fontSize={headingFontSize} color="#000000">
                 about me...
               </Heading>
-              <Text fontSize="20px" fontWeight="bold">
+              <Text fontSize={textFontSize} fontWeight="bold">
                 <span style={{ color: "#9b0000" }}> summary </span>/
                 <span style={{ color: "#9b0000" }}> skills </span>/
                 <span style={{ color: "#9b0000" }}> background </span>
@@ -109,7 +124,7 @@ function Me() {
               <Box
                 mt="50px"
                 fontFamily="Bebas Neue"
-                fontSize="20px"
+                fontSize={textFontSize}
                 color="#000000"
               >
                 <Text>
@@ -127,8 +142,8 @@ function Me() {
                   video games, watching series, and enjoying cycling adventures.
                 </Text>
               </Box>
-              <Box bgColor="#9b0000" w="110vh" h="1vh" mt="5vh" />
-              <Heading fontSize="46px" mt="5vh" color="#000000">
+              <Box bgColor="#9b0000" w="100%" h="2px" mt="5vh" />
+              <Heading fontSize={subHeadingFontSize} mt="5vh" color="#000000">
                 my skills
               </Heading>
               {skills.map((skill, index) => (
@@ -139,25 +154,33 @@ function Me() {
                   gap="60px"
                 >
                   {/* Use Icon component and adjust fontSize */}
-                  <Icon as={skill.icon} fontSize="14vh" color="#9b0000"/>
-                  <Text fontFamily="Bebas Neue" fontSize="20px" color="#000000">
+                  <Icon
+                    as={skill.icon}
+                    fontSize={iconFontSize}
+                    color="#9b0000"
+                  />
+                  <Text
+                    fontFamily="Bebas Neue"
+                    fontSize={textFontSize}
+                    color="#000000"
+                  >
                     {skill.text}
                   </Text>
                 </HStack>
               ))}
-              <Heading fontSize="46px" mt="14vh" color="#000000">
+              <Heading fontSize={subHeadingFontSize} mt="14vh" color="#000000">
                 my background
               </Heading>
               <HStack color="#9b0000" mt="20px">
                 <FaGraduationCap />
-                <Text fontSize="20px" fontWeight="bold">
+                <Text fontSize={textFontSize} fontWeight="bold">
                   education
                 </Text>
               </HStack>
               <Text
                 mt="20px"
                 fontFamily="Bebas Neue"
-                fontSize="20px"
+                fontSize={textFontSize}
                 color="#000000"
               >
                 Since 2020, I've studied computer science at Laguna University
@@ -169,21 +192,26 @@ function Me() {
               </Text>
               <HStack color="#9b0000" mt="20px">
                 <FaLaptopCode />
-                <Text fontSize="20px" fontWeight="bold">
+                <Text fontSize={textFontSize} fontWeight="bold">
                   experience
                 </Text>
               </HStack>
               <Text
                 mt="20px"
                 fontFamily="Bebas Neue"
-                fontSize="20px"
+                fontSize={textFontSize}
                 color="#000000"
               >
                 Completed over 300 hours of internship at Blink Creative Studio.
               </Text>
             </Box>
           </VStack>
-          <Box display="flex" justifyContent="center" alignItems="center">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gridRow={{ base: "2", md: "auto" }} // Place the Box in row 2 for mobile view
+          >
             <Tilt
               options={{
                 maxTilt: 0.5,
@@ -195,8 +223,8 @@ function Me() {
               <Image
                 src={images[currentImageIndex]}
                 borderRadius="25px"
-                h="75vh" // Adjusted to 100%
-                w="100vh" // Adjusted to 100%
+                h={{ base: "50vh", md: "75vh" }}
+                w={{ base: "70vw", md: "100vh" }}
                 objectFit="cover"
                 top="50%"
                 bottom="50%"
@@ -210,7 +238,7 @@ function Me() {
                 }
               />
             </Tilt>
-          </Box>
+          </Box>{" "}
         </Grid>
       </Box>
     </>

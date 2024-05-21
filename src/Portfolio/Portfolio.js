@@ -161,21 +161,21 @@ function Portfolio() {
       {/* Icon */}
       {recognitionHoverIndex !== index && (
         <Box
-        position="absolute"
-        bottom="25px"
-        right="25px"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        bgColor="#4B5059"
-        color="white"
-        fontSize="24px"
-        h="60px"
-        w="60px"
-        borderRadius="full"
-        // transform="translate(-50%, -50%)"
-        transition="opacity 0.9s ease-in-out" // Add transition for icon opacity
-        zIndex={2} // Set z-index of the icon
+          position="absolute"
+          bottom="25px"
+          right="25px"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          bgColor="#4B5059"
+          color="white"
+          fontSize="24px"
+          h="60px"
+          w="60px"
+          borderRadius="full"
+          // transform="translate(-50%, -50%)"
+          transition="opacity 0.9s ease-in-out" // Add transition for icon opacity
+          zIndex={2} // Set z-index of the icon
         >
           <PiEyeClosed fontSize="40px" />
         </Box>
@@ -266,61 +266,86 @@ function Portfolio() {
   return (
     <>
       {/* Portfolio section */}
-      <Box bgColor="#0e0e0e" w="98.8vw" pl="80px" pr="80px">
-        <Grid gridTemplateColumns="1fr 1fr" justifyContent="start">
+      <Box
+        bgColor="#0e0e0e"
+        w="100%"
+        px={{ base: "20px", md: "80px" }}
+        py="80px"
+      >
+        <Grid
+          gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
+          justifyContent="start"
+          alignItems="center"
+          textAlign={{ base: "center", md: "initial" }}
+          gap={{ base: "40px", md: "initial" }}
+        >
           {/* Portfolio heading and statistics */}
-          <Box fontFamily="Bebas Neue" color="#ffffff" mt="150px">
-            <Grid gridTemplateRows="1fr 1fr">
-              <Heading fontFamily="Bebas Neue" color="#ffffff" fontSize="72px">
-                PORTFOLIO
-              </Heading>
-              <Grid gridTemplateColumns="1fr 1fr" gap="-20px">
-                <HStack align="baseline">
-                  <Heading fontFamily="Bebas Neue" fontSize="72px">
-                    {numProjects}
-                  </Heading>
-                  <Text fontSize="28px">Undertakings</Text>
-                </HStack>
-                <HStack align="baseline">
-                  <Heading fontFamily="Bebas Neue" fontSize="72px">
-                    {numRecognitions}
-                  </Heading>
-                  <Text fontSize="28px">Recognition</Text>
-                </HStack>
-              </Grid>
+          <Box color="#ffffff">
+            <Heading
+              as="h2"
+              fontFamily="Bebas Neue"
+              fontSize={{ base: "48px", md: "72px" }}
+              mb="20px"
+            >
+              PORTFOLIO
+            </Heading>
+            <Grid
+              gridTemplateColumns="1fr 1fr"
+              gap={{ base: "20px", md: "initial" }}
+            >
+              <HStack align="baseline">
+                <Heading
+                  as="h3"
+                  fontFamily="Bebas Neue"
+                  fontSize={{ base: "48px", md: "72px" }}
+                >
+                  {numProjects}
+                </Heading>
+                <Text fontSize={{ base: "24px", md: "28px" }}>
+                  Undertakings
+                </Text>
+              </HStack>
+              <HStack align="baseline" mt={{ base: "20px", md: "initial" }}>
+                <Heading
+                  as="h3"
+                  fontFamily="Bebas Neue"
+                  fontSize={{ base: "48px", md: "72px" }}
+                >
+                  {numRecognitions}
+                </Heading>
+                <Text fontSize={{ base: "24px", md: "28px" }}>Recognition</Text>
+              </HStack>
             </Grid>
           </Box>
           {/* Portfolio description */}
-          <Box fontFamily="Bebas Neue" color="#ffffff" mt="50px">
-            <Grid gridTemplateRows="1fr 1fr">
-              <Box />
-              <Text
-                mt="40px"
-                fontSize="32px"
-                fontWeight="bold"
-                align="baseline"
-              >
-                Transforming visions into tangible success, my designs blend
-                form and function seamlessly, ensuring your projects achieve
-                their intended impact.
-              </Text>
-            </Grid>
+          <Box
+            color="#ffffff"
+            mt={{ base: "50px", md: 0 }}
+            textAlign={{ base: "center", md: "initial" }}
+          >
+            <Text
+              fontSize={{ base: "24px", md: "32px" }}
+              fontWeight="bold"
+              align="baseline"
+            >
+              Transforming visions into tangible success, my designs blend form
+              and function seamlessly, ensuring your projects achieve their
+              intended impact.
+            </Text>
           </Box>
         </Grid>
       </Box>
       {/* Grid for projects and recognition */}
       <Grid
-        gridTemplateColumns="repeat(2, 1fr)" // Two columns
+        gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} // One column on small screens, two columns on larger screens
         justifyItems="center"
         gap={5}
         rowGap={10}
         mt="100px"
-        pl="100px"
-        pr="100px"
+        px={{ base: "20px", md: "100px" }}
       >
         {/* Projects */}
         {projectGridItems}
-
         {/* Recognition */}
         {recognitionGridItems}
       </Grid>
