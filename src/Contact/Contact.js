@@ -71,7 +71,7 @@ function Contact() {
         color="#000000"
         overflow="hidden"
         w="98.7vw"
-        my={{ base: "50px", md: "100px", lg: "150px" }}
+        my={{ base: "150px", md: "100px", lg: "150px" }}
       >
         <Marquee speed={100}>
           {messages.map((message, index) => (
@@ -80,7 +80,7 @@ function Contact() {
               display="flex"
               alignItems="center"
               marginRight={{ base: "20px", lg: "50px" }}
-              fontSize={{ base: "8vw", md: "6vw", lg: "8vw" }}
+              fontSize={{ base: "10vw", md: "6vw", lg: "8vw" }}
               fontFamily="Bebas Neue"
             >
               {message}
@@ -91,7 +91,7 @@ function Contact() {
           ))}
         </Marquee>
       </Box>
-      <Box color="#dddbde" mb={{ base: "50px", lg: "100px" }}>
+      <Box color="#dddbde" mb={{ base: "150px", lg: "100px" }}>
         <Box
           as="a"
           onClick={handleClick}
@@ -106,7 +106,7 @@ function Contact() {
         >
           <Heading
             as="h2"
-            fontSize={{ base: "12vw", md: "10vw", lg: "15vw" }}
+            fontSize={{ base: "14vw", md: "10vw", lg: "15vw" }}
             className="capitalize-every-word"
             sx={headingStyle}
           >
