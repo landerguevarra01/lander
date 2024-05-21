@@ -81,7 +81,7 @@ function Me() {
         pb={{ base: "50px", md: "100px" }}
         pt={{ base: "25px", md: "25px" }} // You can adjust this if needed
         boxShadow="0px -94px 50px rgba(14, 14, 14, 0.4)"
-        maxW={{ base: "90%", md: "98.7vw" }} // Adjust max width for responsiveness
+        maxW={{ base: "95%", md: "98.7vw" }} // Adjust max width for responsiveness
         mx="auto" // Center align horizontally
       >
         <Grid
