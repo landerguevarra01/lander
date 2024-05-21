@@ -13,14 +13,14 @@ function Contact() {
   const toast = useToast();
 
   const headingStyle = {
-    transition: "transform 0.5s ease",
+    transition: "transform 2s ease",
     _hover: {
       transform: "scale(0.8)",
     },
   };
 
   const lineStyle = {
-    transition: "width 0.5s ease",
+    transition: "width 2s ease",
     width: "0%",
     _hover: {
       width: "100%",
