@@ -223,8 +223,8 @@ function Me() {
               <Image
                 src={images[currentImageIndex]}
                 borderRadius="25px"
-                h={{ base: "50vh", md: "75vh" }}
-                w={{ base: "70vw", md: "100vh" }}
+                h={{ base: "50vh", md: "80vh" }}
+                w={{ base: "70vw", md: "60vh" }}
                 objectFit="cover"
                 top="50%"
                 bottom="50%"
