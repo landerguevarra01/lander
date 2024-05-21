@@ -5,6 +5,7 @@ import "@fontsource/bebas-neue";
 import "@fontsource/gantari";
 import "animate.css";
 import { Box, Heading, VStack, useToast } from "@chakra-ui/react";
+import MeImg1 from "../Assets/MeImg/img7.JPG";
 
 function Contact() {
   const messages = Array(8).fill("GET IN TOUCH");
@@ -91,6 +92,23 @@ function Contact() {
           ))}
         </Marquee>
       </Box>
+
+      <Box
+        width={{ base: "100px", md: "150px", lg: "200px" }} // Responsive sizes
+        height={{ base: "100px", md: "150px", lg: "200px" }} // Responsive sizes
+        borderRadius="50%"
+        // backgroundColor="blue.500"
+        backgroundImage={`url(${MeImg1})`}
+        backgroundSize="cover"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        fontSize={{ base: "12px", md: "16px", lg: "20px" }} // Responsive font size
+        textAlign="center"
+        my={{ base: "50px", md: "20px", lg: "40px" }} // Responsive margin-top
+      />
+
       <Box color="#dddbde" mb={{ base: "150px", lg: "100px" }}>
         <Box
           as="a"
