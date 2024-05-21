@@ -66,8 +66,8 @@ function Me() {
   ];
 
   // Responsive font sizes
-  const headingFontSize = useBreakpointValue({ base: "36px", md: "72px" });
-  const subHeadingFontSize = useBreakpointValue({ base: "20px", md: "46px" });
+  const headingFontSize = useBreakpointValue({ base: "56px", md: "72px" });
+  const subHeadingFontSize = useBreakpointValue({ base: "40px", md: "46px" });
   const textFontSize = useBreakpointValue({ base: "16px", md: "20px" });
   const iconFontSize = useBreakpointValue({ base: "8vh", md: "14vh" });
 
@@ -113,7 +113,7 @@ function Me() {
                 },
               }}
             >
-              <Heading fontSize={headingFontSize} color="#000000">
+              <Heading fontSize={headingFontSize}>
                 about me...
               </Heading>
               <Text fontSize={textFontSize} fontWeight="bold">
@@ -143,7 +143,7 @@ function Me() {
                 </Text>
               </Box>
               <Box bgColor="#9b0000" w="100%" h="2px" mt="5vh" />
-              <Heading fontSize={subHeadingFontSize} mt="5vh" color="#000000">
+              <Heading fontSize={subHeadingFontSize} mt="5vh">
                 my skills
               </Heading>
               {skills.map((skill, index) => (
@@ -168,7 +168,7 @@ function Me() {
                   </Text>
                 </HStack>
               ))}
-              <Heading fontSize={subHeadingFontSize} mt="14vh" color="#000000">
+              <Heading fontSize={subHeadingFontSize} mt="14vh">
                 my background
               </Heading>
               <HStack color="#9b0000" mt="20px">

@@ -17,7 +17,7 @@ function HeroComponent() {
 
   const fontSizeLander = useBreakpointValue({ base: "17vh", md: "36vh" });
   const fontSizeGuevarra = useBreakpointValue({ base: "14vh", md: "30vh" });
-  const marginTopLander = useBreakpointValue({ base: "5vh", md: "13vh" });
+  const marginTopLander = useBreakpointValue({ base: "25vh", md: "13vh" });
   const marginTopGuevarra = useBreakpointValue({ base: "-6vh", md: "-15vh" });
   const widthBar = useBreakpointValue({ base: "90vw", md: "110vh" });
   const textFontSize = useBreakpointValue({ base: "16px", md: "20px" });
