@@ -5,7 +5,7 @@ import Navigation from "./Nav/Navigation";
 import { BiMenuAltRight } from "react-icons/bi";
 import Me from "./About/Me";
 import Reach from "./Contact/Contact";
-import Projects from "./Porfolio/Projects";
+import Projects from "./Works/Projects";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(
