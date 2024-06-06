@@ -1,64 +1,89 @@
-import { useEffect, useState } from "react";
-import { Heading, VStack, Box } from "@chakra-ui/react";
-import { useInView } from "react-intersection-observer";
-import HeroComponent from "./Hero/HeroComponent.js";
-import Me from "./About/Me.js";
-import Portfolio from "./Portfolio/Portfolio.js";
-import Contact from "./Contact/Contact.js";
-import Language from "./Bouncing/Language.js";
-
-function FadeInSection({ children }) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (inView) {
-      requestAnimationFrame(() => {
-        setIsVisible(true);
-      });
-    }
-  }, [inView]);
-
-  return (
-    <Box
-      ref={ref}
-      opacity={isVisible ? 1 : 0}
-      transition="opacity 0.6s ease-in-out, transform 0.6s ease-in-out"
-      transform={isVisible ? "translateY(0)" : "translateY(20px)"}
-      willChange="opacity, transform"
-    >
-      {children}
-    </Box>
-  );
-}
+import React, { useState, useEffect } from "react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
+import Hero from "./Homepage/Hero";
+import Navigation from "./Nav/Navigation";
+import { BiMenuAltRight } from "react-icons/bi";
+import Me from "./About/Me";
+import Reach from "./Contact/Contact";
+import Projects from "./Works/Projects";
 
 function App() {
+  const [currentPage, setCurrentPage] = useState(
+    localStorage.getItem("currentPage") || "hero"
+  );
+  const [previousPage, setPreviousPage] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("currentPage", currentPage);
+  }, [currentPage]);
+
+  const toggleNavigation = () => {
+    setCurrentPage((prevPage) =>
+      prevPage === "navigation" ? previousPage || "hero" : "navigation"
+    );
+  };
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case "hero":
+        return <Hero setCurrentPage={setCurrentPage} />;
+      case "navigation":
+        return <Navigation setCurrentPage={setCurrentPage} />;
+      case "about":
+        return <Me />;
+      case "contact":
+        return <Reach />;
+      case "projects":
+        return <Projects />;
+      default:
+        return <Hero setCurrentPage={setCurrentPage} />;
+    }
+  };
+
+  const isLightPage = currentPage === "about" || currentPage === "contact";
+
+  const navBackgroundColor = isLightPage ? "white" : "transparent";
+  const navTextColor = isLightPage ? "black" : "white";
+  const headingColor = isLightPage ? "black" : "#ffffff";
+  const hoverColor = isLightPage ? "#000000" : "#ffffff";
+
+  const headingHoverStyle = {
+    color: headingColor,
+    _hover: { color: hoverColor },
+  };
+
+  const menuButtonHoverStyle = {
+    _hover: { color: hoverColor },
+  };
+
   return (
-    <VStack bgColor="#0d0d0d">
-      <Box position="sticky" top="0" zIndex="1" overflow="visible">
-        <HeroComponent />
-      </Box>
-      <Box mt="100px" zIndex="2" bgColor="#0e0e0e" overflow="visible">
-        <FadeInSection>
-          <Me />
-        </FadeInSection>
-        <FadeInSection>
-          <Portfolio />
-        </FadeInSection>
-        {/* <FadeInSection>
-          <Language />
-        </FadeInSection> */}
-        <Box>
-          <FadeInSection>
-            <Contact />
-          </FadeInSection>
+    <Box>
+      <Flex
+        position="fixed"
+        top="10px"
+        left="10px"
+        right="10px"
+        zIndex="999"
+        cursor="pointer"
+        justifyContent="space-between"
+        alignItems="center"
+        bg={navBackgroundColor}
+        color={navTextColor}
+      >
+        <Box onClick={() => setCurrentPage("hero")} {...headingHoverStyle}>
+          <Heading cursor="pointer" fontFamily="Oswald" fontWeight="500px">
+            LG
+          </Heading>
         </Box>
-      </Box>
-    </VStack>
+        <Flex>
+          <Box onClick={toggleNavigation} _hover={menuButtonHoverStyle._hover}>
+            <BiMenuAltRight fontSize="36px" />
+          </Box>
+        </Flex>
+      </Flex>
+
+      {renderPage()}
+    </Box>
   );
 }
 

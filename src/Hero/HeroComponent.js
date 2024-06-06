@@ -1,125 +1,119 @@
-import {
-  Box,
-  Heading,
-  Text,
-  VStack,
-  useBreakpointValue,
-} from "@chakra-ui/react";
-import classnames from "classnames";
-import { useState, useEffect } from "react";
-import "animate.css";
-import "@fontsource/bebas-neue";
+import { Box, Heading, Text, VStack, Link } from "@chakra-ui/react";
+import React from "react";
+import "@fontsource/oswald/400.css";
+import "@fontsource/montserrat/300.css";
 
-function HeroComponent() {
-  const [isAnimated, setIsAnimated] = useState(false);
-  const [showText, setShowText] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const fontSizeLander = useBreakpointValue({ base: "17vh", md: "36vh" });
-  const fontSizeGuevarra = useBreakpointValue({ base: "14vh", md: "30vh" });
-  const marginTopLander = useBreakpointValue({ base: "25vh", md: "13vh" });
-  const marginTopGuevarra = useBreakpointValue({ base: "-6vh", md: "-15vh" });
-  const widthBar = useBreakpointValue({ base: "90vw", md: "110vh" });
-  const textFontSize = useBreakpointValue({ base: "16px", md: "20px" });
-
-  useEffect(() => {
-    // Set initial animation state to true when component mounts
-    setIsAnimated(true);
-    // Set a timeout to show the text after 2 seconds
-    const timeout = setTimeout(() => {
-      setShowText(true);
-    }, 0);
-    // Clear the timeout on component unmount
-    return () => clearTimeout(timeout);
-  }, []); // Empty dependency array ensures the effect runs only once after the initial render
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Determine if the user has scrolled down enough to trigger the effect
-      const scrolled = window.scrollY > 100; // Adjust the value as needed
-      setIsHovered(scrolled);
-    };
-
-    // Add event listener for scroll events
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up by removing the event listener when component unmounts
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+function Hero({ setCurrentPage }) {
   return (
     <>
-      <VStack spacing={{ base: 4, md: 8 }}>
-        <Box
-          color="#ffffff"
-          mt={marginTopLander}
-          className={classnames("animate__animated", {
-            animate__lightSpeedInRight: isAnimated,
-          })}
-          style={{
-            animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
-          }}
-        >
-          <Heading
-            fontFamily="Bebas Neue"
-            fontSize={fontSizeLander}
-            style={{
-              transformOrigin: "left top",
-              transform: isHovered
-                ? "perspective(2000px) rotateX(10deg) rotateY(10deg) rotateZ(-1deg)"
-                : "none",
-              transition: "transform 2s ease-out, box-shadow 2s ease-out",
-            }}
-          >
-            LANDER
-          </Heading>
-        </Box>
-        <Box
-          color="#ffffff"
-          mt={marginTopGuevarra}
-          className={classnames("animate__animated", {
-            animate__lightSpeedInLeft: isAnimated,
-          })}
-          style={{
-            animationDuration: isAnimated ? "1.2s" : "0s", // Change the duration based on isAnimated state
-          }}
-        >
-          <Heading
-            fontFamily="Bebas Neue"
-            fontSize={fontSizeGuevarra}
-            style={{
-              transformOrigin: "left top",
-              transform: isHovered
-                ? "perspective(1000px) rotateX(10deg) rotateY(10deg) rotateZ(-2deg)"
-                : "none",
-              transition: "transform 2s ease-out, box-shadow 2s ease-out",
-            }}
-          >
-            GUEVARRA
-          </Heading>
-        </Box>
-        <Box bgColor="#9b0000" w={widthBar} h="1.5vh" mt="-1vh" />
-        {showText && (
-          <Box
-            className={classnames("animate__animated", {
-              animate__slideInUp: isAnimated,
-            })}
-          >
-            <Text
-              color="#ffffff" // Set color to white during animation
-              fontSize={textFontSize}
-              fontFamily="Bebas Neue"
-              textAlign="center"
-              px={{ base: 4, md: 0 }}
+      <Box
+        display="flex"
+        flexDirection="column"
+        p="10px"
+        bgColor="#000000"
+        height="100vh"
+        width="100vw"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <VStack>
+          <Box ml="-500px">
+            <Box
+              mt="55px"
+              ml="75px"
+              fontFamily="Montserrat"
+              color="#ffffff"
+              letterSpacing="2px"
             >
-              Building pixel-perfect web solutions prioritizing user experience,
-              ensuring smooth navigation and effortless interaction.
-            </Text>
+              <Text fontSize="28px">Hey, I'm</Text>
+            </Box>
+            <Box ml="70px" mt="-25px" color="#c93228">
+              <Heading fontSize="170px" fontFamily="Oswald" letterSpacing="5px">
+                LANDER
+              </Heading>
+            </Box>
+            <Box ml="132px" mt="-30px" color="#c93228">
+              <Heading fontSize="170px" fontFamily="Oswald">
+                GUEVARRA.
+              </Heading>
+            </Box>
+            <Box
+              ml="142px"
+              fontFamily="Montserrat"
+              color="#ffffff"
+              letterSpacing="2px"
+            >
+              <Text fontSize="28px">
+                A UI/UX designer & front-end web developer
+              </Text>
+            </Box>
+            <Box display="flex" justifyContent="flex-end" mt="20px" mr="-400px">
+              <VStack gap="-35px">
+                <Link
+                  onClick={() => setCurrentPage("projects")}
+                  _hover={{ textDecoration: "none" }}
+                  position="relative"
+                  onMouseEnter={(e) => {
+                    e.target.firstChild.style.visibility = "visible";
+                    e.target.style.color = "#c93228"; // Change text color on hover
+                    e.target.firstChild.style.fontWeight = "bold"; // Apply font weight on hover
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.firstChild.style.visibility = "hidden";
+                    e.target.style.color = "#ffffff"; // Revert text color when not hovered
+                    e.target.firstChild.style.fontWeight = "normal"; // Revert font weight when not hovered
+                  }}
+                >
+                  <Text
+                    fontSize="16px"
+                    color="#ffffff"
+                    letterSpacing="8px"
+                    fontFamily="Montserrat"
+                    transition="color 0.3s ease" // Smooth transition effect for color change
+                  >
+                    <span style={{ visibility: "hidden", fontSize: "22px" }}>
+                      &rarr;{" "}
+                    </span>
+                    SEE PROJECTS
+                  </Text>
+                </Link>
+
+                <Link
+                  onClick={() => setCurrentPage("about")}
+                  _hover={{ textDecoration: "none" }}
+                  position="relative"
+                  onMouseEnter={(e) => {
+                    e.target.firstChild.style.visibility = "visible";
+                    e.target.style.color = "#c93228"; // Change text color on hover
+                    e.target.firstChild.style.fontWeight = "bold"; // Apply font weight on hover
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.firstChild.style.visibility = "hidden";
+                    e.target.style.color = "#ffffff"; // Revert text color when not hovered
+                    e.target.firstChild.style.fontWeight = "normal"; // Revert font weight when not hovered
+                  }}
+                >
+                  <Text
+                    fontSize="16px"
+                    color="#ffffff"
+                    letterSpacing="8px"
+                    fontFamily="Montserrat"
+                    transition="color 0.3s ease" // Smooth transition effect for color change
+                    mr="25px"
+                  >
+                    <span style={{ visibility: "hidden", fontSize: "22px" }}>
+                      &rarr;{" "}
+                    </span>
+                    LEARN MORE
+                  </Text>
+                </Link>
+              </VStack>
+            </Box>
           </Box>
-        )}
-      </VStack>
+        </VStack>
+      </Box>
     </>
   );
 }
 
-export default HeroComponent;
+export default Hero;
