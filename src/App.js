@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import Hero from "./Hero/HeroComponent";
+import Hero from "./Homepage/Hero";
 import Navigation from "./Nav/Navigation";
 import { BiMenuAltRight } from "react-icons/bi";
 import Me from "./About/Me";
 import Reach from "./Contact/Contact";
-import Projects from "./Works/Projects";
+import Projects from "./Porfolio/Projects";
 
 function App() {
   const [currentPage, setCurrentPage] = useState(
