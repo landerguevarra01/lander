@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Box, Flex, Heading } from "@chakra-ui/react";
-import Hero from "./Homepage/Hero";
+import Hero from "./Hero/HeroComponent";
 import Navigation from "./Nav/Navigation";
 import { BiMenuAltRight } from "react-icons/bi";
 import Me from "./About/Me";
